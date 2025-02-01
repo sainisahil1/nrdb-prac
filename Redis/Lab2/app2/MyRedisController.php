@@ -5,6 +5,7 @@ class MyRedisController {
     public function __construct() {
         $this->redis = new Redis();
         $this->redisConnect();
+
     }
 
     private function redisConnect(): void
