@@ -1,0 +1,58 @@
+### InfluxDB Commands
+
+# Start InfluxDB CLI
+influx
+
+# Create a database
+CREATE DATABASE mydb
+
+# Show all databases
+SHOW DATABASES
+
+# Use a database
+USE mydb
+
+# Create a retention policy (example: keep data for 7 days)
+CREATE RETENTION POLICY one_week ON mydb DURATION 7d REPLICATION 1
+
+# Insert a data point
+INSERT temperature,location=room1 value=25.5
+
+# Query data
+SELECT * FROM temperature
+
+# Query data with conditions
+SELECT * FROM temperature WHERE location='room1'
+
+# Count number of entries in a measurement
+SELECT COUNT(*) FROM temperature
+
+# Get latest entry
+SELECT * FROM temperature ORDER BY time DESC LIMIT 1
+
+# Drop a measurement
+DROP MEASUREMENT temperature
+
+# Delete data
+DELETE FROM temperature WHERE time < now() - 7d
+
+# Drop a database
+DROP DATABASE mydb
+
+# Create a continuous query
+CREATE CONTINUOUS QUERY cq_name ON mydb BEGIN SELECT mean(value) INTO avg_temperature FROM temperature GROUP BY time(1h) END
+
+# Create a user
+CREATE USER myuser WITH PASSWORD 'mypassword'
+
+# Grant privileges to a user
+GRANT ALL ON mydb TO myuser
+
+# Show users
+SHOW USERS
+
+# Delete a user
+DROP USER myuser
+
+# Show functions
+SHOW FUNCTIONS

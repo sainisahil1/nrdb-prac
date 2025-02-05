@@ -1,0 +1,74 @@
+
+### MongoDB Commands
+
+# Start MongoDB shell
+mongo
+
+# Show all databases
+show dbs
+
+# Create or switch to a database
+use mydb
+
+# Show all collections in the current database
+show collections
+
+# Insert a document into a collection
+db.users.insertOne({"name": "John", "age": 30})
+
+# Insert multiple documents
+db.users.insertMany([{ "name": "Alice", "age": 25 }, { "name": "Bob", "age": 27 }])
+
+# Find all documents in a collection
+db.users.find()
+
+# Find documents with a condition
+db.users.find({"age": 30})
+
+# Find a document and pretty-print it
+db.users.findOne({"name": "Alice"})
+
+# Count documents in a collection
+db.users.count()
+
+# Update a document
+db.users.updateOne({"name": "John"}, { $set: {"age": 31} })
+
+# Update multiple documents
+db.users.updateMany({"age": { $lt: 30 }}, { $set: { "status": "young" } })
+
+# Delete a document
+db.users.deleteOne({"name": "John"})
+
+# Delete multiple documents
+db.users.deleteMany({"age": { $gt: 30 }})
+
+# Drop a collection
+db.users.drop()
+
+# Drop a database
+db.dropDatabase()
+
+# Create an index
+db.users.createIndex({"name": 1})
+
+# List indexes
+db.users.getIndexes()
+
+# Aggregate example
+db.users.aggregate([ { $group: { _id: "$age", count: { $sum: 1 } } } ])
+
+# Create a user
+db.createUser({ user: "admin", pwd: "password", roles: [ "readWrite", "dbAdmin" ] })
+
+# Show users
+db.getUsers()
+
+# Remove a user
+db.dropUser("admin")
+
+# Dump the database
+mongodump --db mydb --out /backup/
+
+# Restore the database
+mongorestore --db mydb /backup/mydb

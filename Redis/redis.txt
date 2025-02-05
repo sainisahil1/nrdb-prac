@@ -1,0 +1,133 @@
+### Redis Commands
+
+# Connect to Redis CLI
+redis-cli
+
+# Set a key-value pair
+SET key value
+
+# Get the value of a key
+GET key
+
+# Delete a key
+DEL key
+
+# Check if a key exists
+EXISTS key
+
+# Set a key with an expiration time (in seconds)
+SETEX key 60 value
+
+# Get all keys matching a pattern
+KEYS *
+
+# List all keys
+SCAN 0
+
+# Increment a key's value
+INCR key
+
+# Decrement a key's value
+DECR key
+
+# Append a value to a string
+APPEND key value
+
+# Get the length of a string
+STRLEN key
+
+# Get a substring of a string
+GETRANGE key start end
+
+# Set a key only if it does not exist
+SETNX key value
+
+# Rename a key
+RENAME oldkey newkey
+
+# Get time-to-live for a key
+TTL key
+
+# Persist a key (remove expiration)
+PERSIST key
+
+# Get the type of a key
+TYPE key
+
+# Add a value to a list
+LPUSH list value
+
+# Add a value to the right of a list
+RPUSH list value
+
+# Get all values from a list
+LRANGE list 0 -1
+
+# Remove and return the last element of a list
+RPOP list
+
+# Remove and return the first element of a list
+LPOP list
+
+# Get the length of a list
+LLEN list
+
+# Add a value to a set
+SADD set value
+
+# Remove a value from a set
+SREM set value
+
+# Get all members of a set
+SMEMBERS set
+
+# Check if a value exists in a set
+SISMEMBER set value
+
+# Get the number of elements in a set
+SCARD set
+
+# Get the intersection of multiple sets
+SINTER set1 set2
+
+# Get the union of multiple sets
+SUNION set1 set2
+
+# Get the difference of multiple sets
+SDIFF set1 set2
+
+# Add a field-value pair to a hash
+HSET hash field value
+
+# Get a field's value from a hash
+HGET hash field
+
+# Get all fields and values from a hash
+HGETALL hash
+
+# Get all fields in a hash
+HKEYS hash
+
+# Get all values in a hash
+HVALS hash
+
+# Increment a field in a hash
+HINCRBY hash field increment
+
+# Delete a field from a hash
+HDEL hash field
+
+# Flush all data from Redis
+FLUSHALL
+
+# Save Redis snapshot
+SAVE
+
+# Save and exit Redis
+SHUTDOWN SAVE
+
+# Get memory usage
+INFO memory
+
+# Monitor all commands executed
+MONITOR
